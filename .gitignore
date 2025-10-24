@@ -1,8 +1,8 @@
-# Ignore everything
+# ignore everything
 /*
 !.gitignore
 
-# Except for the files and folders we want to track
+# except for the files and folders we want to track
 !readme
 !.bashrc
 !.zshrc
