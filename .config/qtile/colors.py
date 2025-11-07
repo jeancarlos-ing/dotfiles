@@ -1,6 +1,4 @@
-# If using transparency, make sure you add (background="#00000000") to 'Screen' line(s).
-# Then, you can use RGBA color codes to add transparency to the colors below.
-# For ex: colors = [["#282c34ee", "#282c34dd"], ...
+# Themes
 
 DoomOne = [
     ["#282c34", "#282c34"], # bg
@@ -40,6 +38,7 @@ GruvboxDark  = [
     ["#b8bb26", "#b8bb26"], # color[8]
     ["#7d7d7d", "#7d7d7d"]  # color[9]
     ]
+
 MonokaiPro = [
     ["#2D2A2E", "#2D2A2E"], # color[0]
     ["#FCFCFA", "#FCFCFA"], # color[1]
@@ -130,4 +129,3 @@ TomorrowNight = [
     ["#70c0ba", "#70c0ba"], # color[8]
     ["#7d7d7d", "#7d7d7d"]  # color[9]
     ]
-

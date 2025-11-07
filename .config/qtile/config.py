@@ -5,10 +5,10 @@ from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 import colors
 
-mod = "mod4"              # Sets mod key to SUPER/WINDOWS
-myTerm = "alacritty"      # My terminal of choice
-myBrowser = "brave"       # My browser of choice
-myEmacs = "emacsclient -c -a 'emacs' " # The space at the end is IMPORTANT!
+mod = "mod4"
+myTerm = "alacritty"
+myBrowser = "brave"
+myEmacs = "emacsclient -c -a 'emacs' "
 
 @lazy.layout.function
 def add_treetab_section(layout):
@@ -20,7 +20,7 @@ def minimize_all(qtile):
     for win in qtile.current_group.windows:
         if hasattr(win, "toggle_minimize"):
             win.toggle_minimize()
-           
+
 @lazy.function
 def maximize_by_switching_layout(qtile):
     current_layout_name = qtile.current_group.layout.name
@@ -30,24 +30,55 @@ def maximize_by_switching_layout(qtile):
         qtile.current_group.layout = 'monadtall'
 
 keys = [
-    Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun -show-icons"), desc='Run Launcher'),
-    Key([mod], "w", lazy.spawn(myBrowser), desc='Web browser'),
-    Key([mod], "b", lazy.hide_show_bar(position='all'), desc="Toggles the bar to show/hide"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "q", lazy.spawn("dm-logout -r"), desc="Logout menu"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod, "shift"], "T", lazy.spawn("conky-toggle"), desc="Conky toggle on/off"),
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "Return",
+        lazy.spawn(myTerm),
+        desc="Terminal"),
+    Key([mod, "shift"], "Return",
+        lazy.spawn("rofi -show drun -show-icons"),
+        desc='Run Launcher'),
+    Key([mod], "w", 
+        lazy.spawn(myBrowser),
+        desc='Web browser'),
+    Key([mod], "b",
+       lazy.hide_show_bar(position='all'),
+        desc="Toggles the bar to show/hide"),
+    Key([mod], "Tab",
+        lazy.next_layout(), 
+        desc="Toggle between layouts"),
+    Key([mod, "shift"], "c",
+        lazy.window.kill(),
+        desc="Kill focused window"),
+    Key([mod, "shift"], "r",
+        lazy.reload_config(), 
+        desc="Reload the config"),
+    Key([mod, "shift"],
+        "q",
+        lazy.spawn("dm-logout -r"), 
+        desc="Logout menu"),
+    Key([mod], "r", 
+        lazy.spawncmd(),
+        desc="Spawn a command using a prompt widget"),
+    Key([mod, "shift"], "T",
+        lazy.spawn("conky-toggle"),
+        desc="Conky toggle on/off"),
+    Key([mod], "h",
+        lazy.layout.left(),
+        desc="Move focus to left"),
+    Key([mod], "l", 
+        lazy.layout.right(),
+        desc="Move focus to right"),
+    Key([mod], "j",
+        lazy.layout.down(),
+        desc="Move focus down"),
+    Key([mod], "k",
+        lazy.layout.up(),
+        desc="Move focus up"),
+    Key([mod], "space",
+        lazy.layout.next(),
+        desc="Move window focus to other window"),
     Key([mod, "shift"], "h",
         lazy.layout.shuffle_left(),
-        lazy.layout.move_left().when(layout=["treetab"]),
+        lazy.layout.move_left().when(layout=["treetab"]), 
         desc="Move window to the left/move tab left in treetab"),
     Key([mod, "shift"], "l",
         lazy.layout.shuffle_right(),
@@ -95,9 +126,7 @@ keys = [
         Key([], "s", lazy.spawn(myEmacs + "--eval '(eshell)'"), desc='Emacs Eshell'),
         Key([], "v", lazy.spawn(myEmacs + "--eval '(vterm)'"), desc='Emacs Vterm'),
         Key([], "w", lazy.spawn(myEmacs + "--eval '(eww \"distro.tube\")'"), desc='Emacs EWW'),
-        Key([], "F4", lazy.spawn("killall emacs"),
-                      lazy.spawn("/usr/bin/emacs --daemon"),
-                      desc='Kill/restart the Emacs daemon')
+        Key([], "F4", lazy.spawn("killall emacs"), lazy.spawn("/usr/bin/emacs --daemon"), desc='Kill/restart the Emacs daemon')
     ]),
     KeyChord([mod], "p", [
         Key([], "h", lazy.spawn("dm-hub -r"), desc='List all dmscripts'),
