@@ -432,6 +432,25 @@
 (use-package haskell-mode)
 (use-package lua-mode)
 (use-package php-mode)
+(use-package web-mode
+  :ensure t
+  :mode ("\\.html?\\'" "\\.css\\'" "\\.js\\'")
+  :config
+  (setq web-mode-enable-auto-quoting nil
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2))
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :config
+  (setq js2-basic-offset 2
+        js-indent-level 2))
+(use-package emmet-mode
+  :ensure t
+  :hook ((web-mode css-mode html-mode) . emmet-mode)
+  :config
+  (setq emmet-expand-jsx-className? t))
 
 (global-set-key [escape] 'keyboard-escape-quit)
 

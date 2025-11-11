@@ -19,9 +19,9 @@ from libqtile.lazy import lazy
 # --- Essential Global Variables ---
 mod = "mod4"        # Super key (Windows/Cmd key) for all main shortcuts
 terminal = "alacritty"
-browser = "qutebrowser"
+browser = "brave"
 emacs = "emacsclient -c -a 'emacs' "
-launcher = "dmenu_run"
+launcher = "dmenu_run -c -l 10 -g 4 -bw 1 -p 'RUN: ' "
 font = "Mononoki Nerd Font"
 temperature = "redshift -O 2400"
 no_temperature = "redshift -x"
