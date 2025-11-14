@@ -1,7 +1,5 @@
 #!/usr/bin/env bash 
 
-COLORSCHEME=doom-one
-
 ### AUTOSTART PROGRAMS ###
 
 if systemd-detect-virt --quiet; then
@@ -15,7 +13,6 @@ fi
 
 dunst -conf "$HOME"/.config/dunst/"$COLORSCHEME" &
 nm-applet &
-conky -c "$HOME"/.config/conky/qtile/01/"$COLORSCHEME".conf || echo "Couldn't start conky."
 sleep 1
 yes | /usr/bin/emacs --daemon &
 
