@@ -1,18 +1,130 @@
--- Personal Neovim Configuration
+--------------------
+-- Options
+--------------------
 
-vim.o.number = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.hlsearch = false
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.showmode = false
-vim.o.termguicolors = true
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
-vim.o.signcolumn = 'yes'
-vim.o.winborder = 'rounded'
+local options = {
+  backup = false,
+  clipboard = "unnamedplus",
+  cmdheight = 2,
+  completeopt = { "menuone", "noselect" },
+  conceallevel = 0,
+  fileencoding = "utf-8",
+  hlsearch = true,                        
+  ignorecase = true,                      
+  mouse = "a",                            
+  pumheight = 10,                         
+  showmode = false,                      
+  showtabline = 2,                       
+  smartcase = true,                      
+  smartindent = true,                    
+  splitbelow = true,
+  splitright = true,
+  swapfile = false,
+  termguicolors = true,
+  timeoutlen = 300,
+  undofile = true,                       
+  updatetime = 300,                      
+  writebackup = false,
+  expandtab = true,                      
+  shiftwidth = 2,                        
+  tabstop = 2,                            
+  cursorline = true,                      
+  colorcolumn = "80",
+  number = true,                          
+  relativenumber = false,                 
+  numberwidth = 4,                        
 
--- Space as leader key
-vim.g.mapleader = ' ' 
+  signcolumn = "yes",
+  wrap = true,                            
+  linebreak = true,                       
+  scrolloff = 8,
+  sidescrolloff = 8,
+  guifont = "monospace:h17",              
+  whichwrap = "bs<>[]hl",
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
+vim.opt.shortmess = "ilmnrx"
+vim.opt.shortmess:append "c"
+vim.opt.iskeyword:append "-"
+vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+
+-- Plugins
+
+--------------------
+-- Keymaps
+--------------------
+local opts = { noremap = true, silent = true }
+
+local term_opts = { silent = true }
+
+-- Shorten function name
+local keymap = vim.keymap.set
+
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
+
+-- Normal --
+-- Better window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Move text up and down
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+
+-- Insert --
+-- Press jk fast to exit insert mode 
+keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
+
+-- Visual --
+-- Stay in indent mode
+keymap("v", "<", "<gv^", opts)
+keymap("v", ">", ">gv^", opts)
+
+-- Move text up and down
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+keymap("v", "p", '"_dP', opts)
+
+-- Visual Block --
+-- Move text up and down
+keymap("x", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
+keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+-- Terminal --
+-- Better terminal navigation
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 

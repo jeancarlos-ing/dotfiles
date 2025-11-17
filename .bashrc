@@ -69,6 +69,9 @@ bind "set completion-ignore-case on"
 
 ### ALIASES ###
 
+# Changin "cat" to "bat"
+alias cat="bat"
+
 # vifmrun to vifm
 alias vifm="$XDG_CONFIG_HOME/vifm/scripts/vifmrun"
 
