@@ -3,12 +3,22 @@
 " https://github.com/jeancarlos-ing
 " A customized .vimrc for vim (https://www.vim.org/)
 
+" TODO: Invest vim easy motions
+" TODO: Invest vim lsp
+
 set nocompatible
 filetype off
 
 " Managing Plugins
 call plug#begin('~/.vim/plugged')
-	
+    " Colorschemes
+    Plug 'joshdick/onedark.vim'	
+    " Status line
+    Plug 'itchyny/lightline.vim'
+    " Syntax highlight
+    Plug 'sheerun/vim-polyglot' " TODO: Research language packs
+    " Git
+    Plug 'airblade/vim-gitgutter' " TODO: Research
 call plug#end()
 
 filetype plugin indent on
@@ -34,6 +44,8 @@ set showmatch
 set ruler
 set showcmd
 set laststatus=2
+
+syntax on
 
 set tabstop=4
 set shiftwidth=4
@@ -61,3 +73,23 @@ set foldmethod=indent
 set splitright
 set splitbelow
 
+" Select colorscheme
+colorscheme onedark
+
+" Status line configuration
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ 'active': {
+       \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ },
+      \ 'component_function': {
+      \     'gitbranch':  'gitbranch#name'
+      \ },
+      \ }
