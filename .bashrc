@@ -3,8 +3,8 @@
 ### EXPORT
 export TERM="xterm-256color"           
 export HISTCONTROL=ignoredups:erasedups
-export EDITOR="emacsclient -t -a ''"   
-export VISUAL="emacsclient -c -a emacs"
+export EDITOR="vim"   
+export VISUAL="vim"
 
 ### SET MANPAGER
 
@@ -74,11 +74,6 @@ alias cat="bat"
 
 # vifmrun to vifm
 alias vifm="$XDG_CONFIG_HOME/vifm/scripts/vifmrun"
-
-# emacs
-alias emacs="emacsclient -c -a 'emacs'" # GUI versions of Emacs
-alias em="/usr/bin/emacs -nw" # Terminal version of Emacs
-alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon" # Kill Emacs and restart daemon..
 
 # Changing "ls" to "eza"
 alias ls='eza --icons -al --color=always --group-directories-first' # my preferred listing

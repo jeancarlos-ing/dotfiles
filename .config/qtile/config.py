@@ -21,7 +21,7 @@ mod = "mod4"        # Super key (Windows/Cmd key) for all main shortcuts
 terminal = "alacritty"
 browser = "brave"
 emacs = "emacsclient -c -a 'emacs' "
-launcher = "dmenu_run -c -l 10 -g 4 -bw 1 -p 'RUN: ' "
+launcher = "dmenu_run"
 font = "Mononoki Nerd Font"
 temperature = "redshift -O 2400"
 no_temperature = "redshift -x"
@@ -33,7 +33,6 @@ screenshot_capture = "scrot -s 'screenshot_%Y-%m-%d-%T_$wx$h.png' -e 'mkdir -p ~
 # ===================================================================
 
 # Define color palettes (e.g., DoomOne, Dracula).
-# The list structure is: [bg, fg, color01, color02, color03, color04, color05, color06, color07, color08]
 # Index 8 (color07) is typically used for the active/focus border.
 
 DoomOne = [
@@ -91,7 +90,6 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 # Labels displayed in the GroupBox widget (Nerd Font icons or text)
 group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX", "MISC"]
-# group_labels = ["", "", "👁", "", "", "", "✀", "꩜", "", "⎙"] # Icon labels (Requires Nerd Font)
 
 # Default layout for each workspace
 group_layouts = ["monadtall"] * len(group_names)
@@ -182,25 +180,6 @@ keys = [
     # --- Group/Workspace Navigation ---
     Key([mod, "control"], "Right", lazy.screen.next_group(), desc="Switch to the next group on the right"),
     Key([mod, "control"], "Left", lazy.screen.prev_group(), desc="Switch to the previous group on the left"),
-
-    # --- Key Chords: Emacs (SUPER+e followed by 'key') ---
-    KeyChord([mod],"e", [
-        Key([], "e", lazy.spawn(emacs), desc='Emacs Dashboard'),
-        Key([], "a", lazy.spawn(emacs + "--eval '(emms-play-directory-tree \"~/Music/\")'"), desc='Emacs EMMS Music Player'),
-        # ... other emacs keybindings ...
-        Key([], "s", lazy.spawn(emacs + "--eval '(eshell)'"), desc='Emacs Eshell'),
-        Key([], "v", lazy.spawn(emacs + "--eval '(vterm)'"), desc='Emacs Vterm'),
-        Key([], "F4", lazy.spawn("killall emacs"), lazy.spawn("/usr/bin/emacs --daemon"), desc='Kill/restart the Emacs daemon')
-    ], name="Emacs"),
-
-    # --- Key Chords: Dmenu/rofi scripts (SUPER+p followed by 'key') ---
-    KeyChord([mod], "p", [
-        Key([], "h", lazy.spawn("dm-hub -r"), desc='List all dmscripts'),
-        Key([], "b", lazy.spawn("dm-setbg -r"), desc='Set background'),
-        # ... other dmenu/rofi scripts ...
-        Key([], "r", lazy.spawn("dm-radio -r"), desc='Listen to online radio'),
-        Key([], "s", lazy.spawn("dm-websearch -r"), desc='Search various engines'),
-    ], name="Scripts"),
 ]
 
 # --- Group Keybindings Generation ---

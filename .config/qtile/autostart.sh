@@ -1,7 +1,6 @@
 #!/usr/bin/env bash 
 
 ### AUTOSTART PROGRAMS ###
-
 if systemd-detect-virt --quiet; then
     lxsession &
     sleep 1
@@ -11,10 +10,8 @@ else
     lxsession &
 fi
 
-dunst -conf "$HOME"/.config/dunst/"$COLORSCHEME" &
-nm-applet &
+dunst -conf "$HOME"/.config/dunst/colorscheme &
 sleep 1
-yes | /usr/bin/emacs --daemon &
 
 # Wallpapers
 feh --recursive --bg-fill --randomize ~/.wallpapers
