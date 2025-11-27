@@ -58,26 +58,6 @@ key = "Insert"
 mods = "Shift"
 
 [[keyboard.bindings]]
-action = "ResetFontSize"
-key = "Key0"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Equals"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Plus"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "DecreaseFontSize"
-key = "Minus"
-mods = "Control"
-
-[[keyboard.bindings]]
 action = "ToggleFullscreen"
 key = "F11"
 mods = "None"
@@ -131,7 +111,7 @@ history = 5000
 
 [window]
 dynamic_padding = false
-opacity = 0.98
+opacity = 0.925
 title = "Alacritty"
 
 [window.class]
