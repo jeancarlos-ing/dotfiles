@@ -1,0 +1,32 @@
+{
+  "window.zoomLevel": 0,
+  "editor.wordWrap": "on",
+  "files.autoSave": "onFocusChange",
+  "window.restoreWindows": "none",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.renderWhitespace": "all",
+  "editor.fontFamily": "Mononoki Nerd Font Mono",
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "workbench.preferredHighContrastColorTheme": "One Dark Pro Darker",
+  "workbench.statusBar.visible": false,
+  "editor.minimap.enabled": false,
+  "window.menuBarVisibility": "compact",
+  "breadcrumbs.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "oneDarkPro.bold": true,
+  "oneDarkPro.italic": true,
+  "oneDarkPro.vivid": true
+}
