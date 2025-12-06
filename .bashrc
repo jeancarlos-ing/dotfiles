@@ -1,5 +1,3 @@
-# My bash config. Not much to see here; just some pretty standard stuff.
-
 ### EXPORT
 export TERM="xterm-256color"           
 export HISTCONTROL=ignoredups:erasedups
@@ -29,15 +27,7 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/Applications" ] ;
-  then PATH="$HOME/Applications:$PATH"
-fi
-
-if [ -d "/var/lib/flatpak/exports/bin/" ] ;
-  then PATH="/var/lib/flatpak/exports/bin/:$PATH"
-fi
-
-# bun
+# BUN
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
@@ -51,18 +41,15 @@ fi
 if [ -z "$XDG_CACHE_HOME" ] ; then
     export XDG_CACHE_HOME="$HOME/.cache"
 fi
-export XMONAD_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/xmonad" # xmonad.hs is expected to stay here
-export XMONAD_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/xmonad"
-export XMONAD_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/xmonad"
 
 ### SHOPT
-shopt -s autocd # change to named directory
-shopt -s cdspell # autocorrects cd misspellings
-shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s autocd
+shopt -s cdspell
+shopt -s cmdhist
 shopt -s dotglob
-shopt -s histappend # do not overwrite history
-shopt -s expand_aliases # expand aliases
-shopt -s checkwinsize # checks term size when bash regains control
+shopt -s histappend
+shopt -s expand_aliases
+shopt -s checkwinsize
 
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
@@ -75,19 +62,9 @@ alias cat="bat"
 # vifmrun to vifm
 alias vifm="$XDG_CONFIG_HOME/vifm/scripts/vifmrun"
 
-# Changing "ls" to "eza"
-alias ls='eza --icons -al --color=always --group-directories-first' # my preferred listing
-alias la='eza --icons -a --color=always --group-directories-first'  # all files and dirs
-alias ll='eza --icons -l --color=always --group-directories-first'  # long format
-alias lt='eza --icons -aT --color=always --group-directories-first' # tree listing
-alias l.='eza --icons -al --color=always --group-directories-first ../' # ls on the PARENT directory
-alias l..='eza --icons -al --color=always --group-directories-first ../../' # ls on directory 2 levels up
-alias l...='eza --icons -al --color=always --group-directories-first ../../../' # ls on directory 3 levels up
-
-# adding flags
-alias df='df -h'               # human-readable sizes
-alias free='free -m'           # show sizes in MB
-alias grep='grep --color=auto' # colorize output (good for log files)
+# Changing "ls" to "lsd"
+alias ls="lsd -la"
+alias lt="lsd --tree"
 
 # ps
 alias psa="ps auxf"
@@ -109,13 +86,6 @@ eval "$(starship init bash)"
 eval "$(fzf --bash)"
 
 . "/home/jc/.deno/env"
-# fnm
-FNM_PATH="/home/jc/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
-
 # fnm
 FNM_PATH="/home/jc/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then

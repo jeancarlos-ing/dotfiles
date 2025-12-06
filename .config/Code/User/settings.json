@@ -13,11 +13,10 @@
   "emmet.includeLanguages": {
     "javascript": "html"
   },
-
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "workbench.preferredHighContrastColorTheme": "One Dark Pro Darker",
+  "workbench.preferredHighContrastColorTheme": "GitHub Dark Dimmed",
   "workbench.statusBar.visible": false,
   "editor.minimap.enabled": false,
   "window.menuBarVisibility": "compact",
@@ -29,17 +28,21 @@
   "oneDarkPro.bold": true,
   "oneDarkPro.italic": true,
   "oneDarkPro.vivid": true,
-  "workbench.iconTheme": "vscode-icons",
   "eslint.enable": true,
   "[javascript][typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "eslint.validate": ["javascript", "typescript"],
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
   "eslint.codeActionsOnSave.options": {
     "rules": {
       "fixAll": true,
       "fixAll.eslint": true
     }
   },
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "vscode-icons"
 }
